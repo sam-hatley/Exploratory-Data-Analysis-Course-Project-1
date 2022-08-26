@@ -23,45 +23,8 @@ clean_dat = function(){
   return(dat)
 }
 
-
-plot1 = function(dat){
-  png(file="./plots/plot1.png",
-      width = 480, height = 480)
-  
-  hist(dat$`Global Active Power (kW)`, main = "Global Active Power", 
-       col = "red", xlab = "Global Active Power (kW)", ylab = "Frequency")
-  
-  dev.off()
-}
-
-
-plot2 = function(dat){
-  png(file="./plots/plot2.png",
-      width = 480, height = 480)
-  
-  plot(dat$Date,dat$`Global Active Power (kW)`,
-       type = "l", main="",ylab = "Global Active Power (kW)", xlab="")
-  
-  dev.off()
-}
-
-
-plot3 = function(dat){
-  png(file="./plots/plot3.png",
-      width = 480, height = 480)
-  
-  plot(dat$Date, dat$`Energy Sub-metering No. 1 (Wh)`,type = "l",
-       xlab = "", ylab = "Energy sub metering")
-  lines(dat$Date,dat$`Energy Sub-metering No.2 (Wh)`, col = "red")
-  lines(dat$Date,dat$`Energy Sub-metering No.3 (Wh)`,col = "blue")
-  legend("topright", c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
-         lty = c(1,1,1), col = c("black","red","blue"))
-  
-  dev.off()
-  }
-
 plot4 = function(dat){
-  png(file="./plots/plot4.png",
+  png(file="./plot4.png",
       width = 480, height = 480)
   
   par(mfrow=c(2,2))
@@ -86,7 +49,4 @@ plot4 = function(dat){
 }
 
 dat = clean_dat()
-plot1(dat)
-plot2(dat)
-plot3(dat)
 plot4(dat)
